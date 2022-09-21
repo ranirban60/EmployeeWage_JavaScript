@@ -17,7 +17,7 @@ function calcWagesForAMonth(WORKING_DAYS) {
     days++;
   }
   let empWageForMonth = empHrs * WAGE_PER_HR;
-  console.log(`    Total working days = ${days} 
+  console.log(`Total working days = ${days} 
     Total Hrs = ${empHrs }
     Total Wage for Month = ${empWageForMonth}`)
   return empWageForMonth;
