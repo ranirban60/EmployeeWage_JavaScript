@@ -1,10 +1,22 @@
 console.log("Welcome to Employee wage problem")
-const IS_ABSENT = 0;
 
-let attendance = Math.floor(Math.random() * 2);
-if (attendance == IS_ABSENT) {
-  console.log('Employee is absent');
-  return;
-}else{
-  console.log('Employee is present');
+const NO_TIME = 0;
+const IS_PART_TIME = 1;
+const IS_FULL_TIME = 2;
+const PART_TIME_HRS = 4;
+const FULL_TIME_HRS = 8;
+const WAGE_PER_HR = 20;
+
+let empType = Math.floor(Math.random() * 3);
+switch (empType) {
+  case IS_PART_TIME:
+     empHrs = PART_TIME_HRS;
+     break;
+  case IS_FULL_TIME:
+     empHrs = FULL_TIME_HRS;
+     break;
+  default: 
+     empHrs = 0;
 }
+let empWage = empHrs * WAGE_PER_HR;
+console.log("Employee Wage: " + empWage);
