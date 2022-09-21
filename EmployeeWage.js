@@ -29,3 +29,4 @@ function getWorkingHrs(empType) {
 }
 
 console.log("Total Wage per a month : " + calcWagesForAMonth(WORKING_DAYS));
+  
