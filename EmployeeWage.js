@@ -19,7 +19,7 @@ function calcWagesForAMonth(WORKING_DAYS) {
     let empWageForMonth = empHrs * WAGE_PER_HR;
     return empWageForMonth;
   }
-  
+
 function getWorkingHrs(empType) {
     switch (empType) {
       case IS_PART_TIME:
@@ -32,3 +32,5 @@ function getWorkingHrs(empType) {
   }
   
   console.log("Total Wage per a month : " + calcWagesForAMonth(WORKING_DAYS));
+
+
