@@ -7,11 +7,12 @@ const PART_TIME_HRS = 4;
 const FULL_TIME_HRS = 8;
 const WAGE_PER_HR = 20;
 const WORKING_DAYS = 20;
+const MAX_HRS_IN_MONTH = 160;
 
 function calcWagesForAMonth(WORKING_DAYS) {
   let empHrs = 0;
   let days=0;
-  while(days<WORKING_DAYS && empHrs<=160){
+  while(days<WORKING_DAYS && empHrs<=MAX_HRS_IN_MONTH){
     let empType = Math.floor(Math.random() * 3);
     empHrs+=getWorkingHrs(empType);
     days++;
