@@ -24,7 +24,7 @@ function calcWagesForAMonth() {
   let empWageForMonth = totalEmpHrs * WAGE_PER_HR;
   console.log(`Total working days = ${days} 
     Total Hrs = ${totalEmpHrs}
-    Total Wage for Month = ${empDailyWageArray.reduce((totalWage, dailyWage) => totalWage + dailyWage)}`)   //UC-7a Calc total Wage using reduce mehod
+    Total Wage for Month = ${empDailyWageArray.reduce((totalWage, dailyWage) => totalWage + dailyWage)}`)   //UC-7a Calc total Wage using reduce method
 
   return empWageForMonth;
 }
