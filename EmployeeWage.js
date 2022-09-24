@@ -8,20 +8,31 @@ const FULL_TIME_HRS = 8;
 const WAGE_PER_HR = 20;
 const WORKING_DAYS = 20;
 const MAX_HRS_IN_MONTH = 160;
+let empDailyWageArray = new Array();
+let totalWage = 0;
 
-function calcWagesForAMonth(WORKING_DAYS) {
-  let empHrs = 0;
+function calcWagesForAMonth() {
+  let totalEmpHrs = 0;
   let days=0;
-  while(days<WORKING_DAYS && empHrs<=MAX_HRS_IN_MONTH){
+
+  while(days<WORKING_DAYS && totalEmpHrs<=MAX_HRS_IN_MONTH){
     let empType = Math.floor(Math.random() * 3);
-    empHrs+=getWorkingHrs(empType);
+    totalEmpHrs+=getWorkingHrs(empType)
+    empDailyWageArray.push(calculateWage(getWorkingHrs(empType)));
     days++;
   }
-  let empWageForMonth = empHrs * WAGE_PER_HR;
+  console.log(empDailyWageArray)
+
+  let empWageForMonth = totalEmpHrs * WAGE_PER_HR;
   console.log(`Total working days = ${days} 
-    Total Hrs = ${empHrs }
-    Total Wage for Month = ${empWageForMonth}`)
+    Total Hrs = ${totalEmpHrs}
+    Total Wage for Month = ${empDailyWageArray.reduce((totalWage, dailyWage) => totalWage + dailyWage)}`)
+
   return empWageForMonth;
+}
+
+function calculateWage(empHrs){
+  return WAGE_PER_HR * empHrs
 }
 
 function getWorkingHrs(empType) {
@@ -32,4 +43,4 @@ function getWorkingHrs(empType) {
   }
 }
 
-calcWagesForAMonth(WORKING_DAYS);
+calcWagesForAMonth();
