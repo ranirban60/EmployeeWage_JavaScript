@@ -153,3 +153,34 @@ employeePayRollData.setId(3);
 employeePayRollData.setname('Thomas');
 employeePayRollData.setSalary('500000');
 console.log(employeePayRollData);
+
+//UC-11a Calc total Wage and total hours worked
+let totalWages = empHrsAndWageArrayObject
+                  .filter(hrsAndWageObj => hrsAndWageObj.dailyWage>0 )
+                  .reduce((totalWage, hrsAndWageObj) => totalWage+= hrsAndWageObj.dailyWage, 0 );
+
+let totalHrs = empHrsAndWageArrayObject
+                  .filter(hrsAndWageObj => hrsAndWageObj.dailyWage>0 )
+                  .reduce((totalHrs, hrsAndWageObj) => totalHrs+= hrsAndWageObj.dailyHrs, 0 );
+
+console.log('\nUC-11a Total hrs = ' + totalHrs + ' Total wages = ' + totalWages);
+
+//UC-11b show the full workings days using foreach
+console.log('\nUC-11b Show full working days: ')
+empHrsAndWageArrayObject.filter(hrsAndWageObj => hrsAndWageObj.dailyHrs==8)
+                        .forEach(hrsAndWageObj => console.log(hrsAndWageObj.toString()));
+
+//UC-11c Show Part working days using Map by reducing to String Array
+console.log('\nUC-11c Show part working days: ')
+let partWorkingDaysStrArr = empHrsAndWageArrayObject
+                              .filter(hrsAndWageObj => hrsAndWageObj.dailyHrs==4)
+                              .map(hrsAndWageObj => hrsAndWageObj.toString());
+
+console.log(partWorkingDaysStrArr);
+
+//UC-11d No working days only using Map function
+let nonWorkingDaysStrArr = empHrsAndWageArrayObject
+                              .filter(hrsAndWageObj => hrsAndWageObj.dailyHrs==0)
+                              .map(hrsAndWageObj => hrsAndWageObj.toString());
+
+console.log(nonWorkingDaysStrArr);
