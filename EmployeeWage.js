@@ -9,6 +9,7 @@ const WAGE_PER_HR = 20;
 const WORKING_DAYS = 20;
 const MAX_HRS_IN_MONTH = 160;
 let empDailyWageArray = new Array();
+let empDailyWageMap = new Map();
 
 function calcWagesForAMonth() {
   let totalEmpHrs = 0;
@@ -18,6 +19,7 @@ function calcWagesForAMonth() {
     let empType = Math.floor(Math.random() * 3);
     totalEmpHrs+=getWorkingHrs(empType)
     empDailyWageArray.push(calculateWage(getWorkingHrs(empType)));
+    empDailyWageMap.set(days+1,calculateWage(getWorkingHrs(empType)));
     days++;
   }
 
@@ -66,3 +68,7 @@ console.log('Check is there any part time wage: ' + arrMap.some(dw => dw.include
 //UC-7g Find number of days employee worked
 let workingDays = empDailyWageArray.filter(dw => dw>0);
 console.log("Number of days Employee worked = "+workingDays.length);
+
+//UC-8 Map Functions
+console.log(empDailyWageMap);
+console.log("Total Wage for a month = "+ Array.from(empDailyWageMap.values()).reduce((totalWage,dailyWage) => totalWage+dailyWage));
