@@ -11,6 +11,7 @@ const MAX_HRS_IN_MONTH = 160;
 let empDailyWageArray = new Array();
 let empDailyWageMap = new Map();
 let empDailyHoursMap = new Map();
+let empHrsAndWageArrayObject = new Array();
 
 function calcWagesForAMonth() {
   let totalEmpHrs = 0;
@@ -22,11 +23,20 @@ function calcWagesForAMonth() {
     empDailyWageArray.push(calculateWage(getWorkingHrs(empType)));
     empDailyHoursMap.set(days+1, getWorkingHrs(empType));
     empDailyWageMap.set(days+1,calculateWage(getWorkingHrs(empType)));
+    empHrsAndWageArrayObject.push(
+      {
+          day : days,
+          dailyHrs : getWorkingHrs(empType),
+          dailyWage : calculateWage(getWorkingHrs(empType)),
+          toString(){
+              return "\nDay "+this.day+" Working Hours "+this.dailyHrs+" Wage Earned : "+this.dailyWage
+          } 
+      });
     days++;
   }
 
   let empWageForMonth = totalEmpHrs * WAGE_PER_HR;
-  console.log(`Total working days = ${days} 
+  console.log(`Total working days = ${days-1} 
     Total Hrs = ${totalEmpHrs}
     Total Wage for Month = ${empDailyWageArray.reduce((totalWage, dailyWage) => totalWage + dailyWage)}`)   //UC-7a Calc total Wage using reduce method
 
@@ -75,7 +85,7 @@ console.log("Number of days Employee worked = "+workingDays.length);
 console.log(empDailyWageMap);
 console.log("Total Wage for a month = "+ Array.from(empDailyWageMap.values()).reduce((totalWage,dailyWage) => totalWage+dailyWage));
 
-//UC9 Arrow Functions
+//UC-9 Arrow Functions
 const findTotal = (totalValue, dailyValue) => {
   return totalValue + dailyValue;
 }
@@ -100,3 +110,7 @@ empDailyHoursMap.forEach((value, key) => {
 console.log("Full Working Days : " + fullTimeWorkingDays);
 console.log("Part Working Days : " + partTimeWorkingDays);
 console.log("Non Working Days : " + nonWorkingDays);
+
+
+//UC-10 
+console.log("Daily Hours Worked and Wage Earned : "+empHrsAndWageArrayObject);
