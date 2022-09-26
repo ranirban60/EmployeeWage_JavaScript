@@ -112,5 +112,44 @@ console.log("Part Working Days : " + partTimeWorkingDays);
 console.log("Non Working Days : " + nonWorkingDays);
 
 
-//UC-10 
+//UC-10 Object Creation
 console.log("Daily Hours Worked and Wage Earned : "+empHrsAndWageArrayObject);
+
+//UC-11 Employee Payroll Data Class
+class EmployeePayRollData {
+  //Property
+  id;
+  name;
+  salary;
+
+  //constructor
+  constructor(id, name, salary) {
+    this.id = id;
+    this.name = name;
+    this.salary = salary;
+  }
+
+  //getter and setter method
+  getid(){ return this.id}
+  setId(Id) { this.id = Id}
+
+  getname() { return this.name}
+  setname(Name) { this.name = Name}
+
+  getsalary() { return this.salary}
+  setSalary(Salary) { this.salary = Salary}
+
+  //to string method
+  toString() {
+    return 'id=' + this.id + ', name=' + this.name + ', salary=' + this.salary;
+  }
+}
+
+let employeePayRollData = new EmployeePayRollData(1, 'Mark', 30000);
+console.log(employeePayRollData);
+employeePayRollData.name = 'John'
+console.log(employeePayRollData);
+employeePayRollData.setId(3);
+employeePayRollData.setname('Thomas');
+employeePayRollData.setSalary('500000');
+console.log(employeePayRollData);
