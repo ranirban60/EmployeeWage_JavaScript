@@ -75,8 +75,7 @@ console.log("Number of days Employee worked = "+workingDays.length);
 console.log(empDailyWageMap);
 console.log("Total Wage for a month = "+ Array.from(empDailyWageMap.values()).reduce((totalWage,dailyWage) => totalWage+dailyWage));
 
-//UC9 Working hours on a particular day
-
+//UC9 Arrow Functions
 const findTotal = (totalValue, dailyValue) => {
   return totalValue + dailyValue;
 }
