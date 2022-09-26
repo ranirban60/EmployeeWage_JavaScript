@@ -265,5 +265,5 @@ catch(e){
 }
 
 
-let teresaPayrollData = new EmployeePayrollData(1, "Teresa", 50000, "F", new Date());
-console.log(teresaPayrollData.toString());
+let newEmployeePayrollData = new EmployeePayrollData(1, "Teresa", 50000, "F", new Date());
+console.log(newEmployeePayrollData.toString());
