@@ -187,6 +187,7 @@ let nonWorkingDaysStrArr = empHrsAndWageArrayObject
 console.log(nonWorkingDaysStrArr);
 
 //UC-12 Extend Employee Payroll Data Class
+//UC13- Use Regex Pattern
 class EmployeePayrollData {
 
   constructor(...params) {
@@ -210,7 +211,11 @@ class EmployeePayrollData {
   }
 
   set name(name) {
-      this._name = name;
+      let nameRegex = RegExp('^[A-Z]{1}[a-z]{3,}$');
+      if(nameRegex.test(name))
+          this._name = name;
+      else
+          throw 'Name is Incorrect';
   }
 
   get salary() {
@@ -246,9 +251,19 @@ class EmployeePayrollData {
 
 let employeePayrollData = new EmployeePayrollData(1, "Mark", 30000);
 console.log(employeePayrollData.toString());
-employeePayrollData.id = 0;
-employeePayrollData.name = "Jeff";
-console.log(employeePayrollData.toString());
+
+try{
+  employeePayrollData.id = 0;
+  employeePayrollData.name = "John";
+  console.log(employeePayrollData.toString());
+  employeePayrollData.id = 2;
+  employeePayrollData.name = "Joh";
+  console.log(employeePayrollData.toString());
+}
+catch(e){
+  console.error(e);
+}
+
 
 let teresaPayrollData = new EmployeePayrollData(1, "Teresa", 50000, "F", new Date());
 console.log(teresaPayrollData.toString());
